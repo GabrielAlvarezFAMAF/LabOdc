@@ -1,20 +1,10 @@
 .equ SCREEN_WIDTH,   640 // ancho de la pantalla en pixeles eje x
 .equ SCREEN_HEIGH,   480 // alto de la pantalla en pixeles eje y
 
-.global structure
+.global windows
 
-structure: 
-    windows: 
-    /*ventanas de dos colores blanco y amarillo 
-        color 1 blanco  */ 
-    movz x10 , 0xFFFF , lsl 16 
-    movk x10 , 0xFFFF , lsl 00
-    mov x1, 7      // Ancho de la ventana
-    mov x2, 10     // Alto de la ventana
-    mov x3, 242    // Coordenada x inicial
-    mov x4, 130    // Coordenada y inicial
-    mov x5, 4      // Número de ventanas por fila
-    mov x6, 8      // Número de filas de ventanas
+windows: 
+// parametros: x1 = Width, x2 = Heigh, x3 = initial x, x4 = initial y, x5 = ventanas por fila, x6 = filas de ventanas, x8 = separación x, x9 = separación y
 
 row_loop:
     mov x7, x5     // Inicializa el contador de ventanas por fila
@@ -30,12 +20,14 @@ window_loop:
     ldr x4, [sp, 8] // Restaura x4 desde la pila
     add sp, sp, 16
 
-    add x3, x3, 14 // Mueve la coordenada x para la siguiente ventana (7 píxeles de ancho + 2 píxeles de separación)
+    add x3, x3, x1 // Mueve la coordenada x para la siguiente ventana (ancho de la ventana)
+    add x3, x3, x8 // Añade la separación entre ventanas en el eje x
     sub x7, x7, 1  // Decrementa el contador de ventanas
     cbnz x7, window_loop // Si no hemos terminado, repite el bucle
 
     // Mueve la coordenada y para la siguiente fila de ventanas
-    add x4, x4, 20 // Mueve la coordenada y para la siguiente fila (10 píxeles de alto + 20 píxeles de separación)
+    add x4, x4, x2 // Mueve la coordenada y para la siguiente fila (alto de la ventana)
+    add x4, x4, x22 // Añade la separación entre filas en el eje y
     mov x3, 242    // Restaura la coordenada x inicial
     sub x6, x6, 1  // Decrementa el contador de filas
     cbnz x6, row_loop // Si no hemos terminado, repite el bucle

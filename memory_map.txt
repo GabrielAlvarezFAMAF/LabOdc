@@ -12,67 +12,67 @@ LOAD objects.o
 LOAD start.o
                 0x0000000000080000                . = 0x80000
 
-.text           0x0000000000080000    0x90478
+.text           0x0000000000080000    0x90488
  *(.text.boot)
  .text.boot     0x0000000000080000    0x100c8 start.o
                 0x0000000000080000                _start
  *(.text*)
- .text          0x00000000000900c8       0x30 app.o
+ .text          0x00000000000900c8       0x58 app.o
                 0x00000000000900c8                main
- .text          0x00000000000900f8      0x320 functions.o
-                0x00000000000900f8                checkRange
-                0x0000000000090168                calcular_pixel
-                0x0000000000090194                paint_pixel
-                0x00000000000901b0                rectangle
-                0x00000000000901f0                paint_pixel_cond
-                0x0000000000090218                background
-                0x000000000009035c                rectangleDegrade
-                0x00000000000903cc                brick
- .text          0x0000000000090418       0x60 objects.o
-                0x0000000000090418                structure
- .text          0x0000000000090478    0x80000 start.o
+ .text          0x0000000000090120      0x320 functions.o
+                0x0000000000090120                checkRange
+                0x0000000000090190                calcular_pixel
+                0x00000000000901bc                paint_pixel
+                0x00000000000901d8                rectangle
+                0x0000000000090218                paint_pixel_cond
+                0x0000000000090240                background
+                0x0000000000090384                rectangleDegrade
+                0x00000000000903f4                brick
+ .text          0x0000000000090440       0x48 objects.o
+                0x0000000000090440                windows
+ .text          0x0000000000090488    0x80000 start.o
 
-.iplt           0x0000000000110478        0x0
- .iplt          0x0000000000110478        0x0 app.o
+.iplt           0x0000000000110488        0x0
+ .iplt          0x0000000000110488        0x0 app.o
 
-.rela.dyn       0x0000000000110478        0x0
- .rela.iplt     0x0000000000110478        0x0 app.o
+.rela.dyn       0x0000000000110488        0x0
+ .rela.iplt     0x0000000000110488        0x0 app.o
  .rela.text.boot
-                0x0000000000110478        0x0 app.o
+                0x0000000000110488        0x0 app.o
 
-.data           0x0000000000110478        0x0
- .data          0x0000000000110478        0x0 app.o
- .data          0x0000000000110478        0x0 functions.o
- .data          0x0000000000110478        0x0 objects.o
- .data          0x0000000000110478        0x0 start.o
+.data           0x0000000000110488        0x0
+ .data          0x0000000000110488        0x0 app.o
+ .data          0x0000000000110488        0x0 functions.o
+ .data          0x0000000000110488        0x0 objects.o
+ .data          0x0000000000110488        0x0 start.o
 
-.igot.plt       0x0000000000110478        0x0
- .igot.plt      0x0000000000110478        0x0 app.o
+.igot.plt       0x0000000000110488        0x0
+ .igot.plt      0x0000000000110488        0x0 app.o
 
-.bss            0x0000000000110478        0x0
+.bss            0x0000000000110488        0x0
  *(.bss*)
- .bss           0x0000000000110478        0x0 app.o
- .bss           0x0000000000110478        0x0 functions.o
- .bss           0x0000000000110478        0x0 objects.o
- .bss           0x0000000000110478        0x0 start.o
+ .bss           0x0000000000110488        0x0 app.o
+ .bss           0x0000000000110488        0x0 functions.o
+ .bss           0x0000000000110488        0x0 objects.o
+ .bss           0x0000000000110488        0x0 start.o
 
-.bss            0x0000000000110478        0x8
-                0x0000000000110480                . = ALIGN (0x10)
- *fill*         0x0000000000110478        0x8 
-                0x0000000000110480                __bss_start = .
+.bss            0x0000000000110488        0x8
+                0x0000000000110490                . = ALIGN (0x10)
+ *fill*         0x0000000000110488        0x8 
+                0x0000000000110490                __bss_start = .
  *(.bss .bss.*)
  *(COMMON)
-                0x0000000000110480                __bss_end = .
-                0x0000000000110480                _end = .
+                0x0000000000110490                __bss_end = .
+                0x0000000000110490                _end = .
                 0x0000000000000000                __bss_size = ((__bss_end - __bss_start) >> 0x3)
 OUTPUT(kernel8.elf elf64-littleaarch64)
 LOAD linker stubs
 
-.debug_line     0x0000000000000000      0x1f3
- .debug_line    0x0000000000000000       0x44 app.o
- .debug_line    0x0000000000000044      0x108 functions.o
- .debug_line    0x000000000000014c       0x54 objects.o
- .debug_line    0x00000000000001a0       0x53 start.o
+.debug_line     0x0000000000000000      0x1f7
+ .debug_line    0x0000000000000000       0x4e app.o
+ .debug_line    0x000000000000004e      0x108 functions.o
+ .debug_line    0x0000000000000156       0x4e objects.o
+ .debug_line    0x00000000000001a4       0x53 start.o
 
 .debug_info     0x0000000000000000       0xb8
  .debug_info    0x0000000000000000       0x2e app.o

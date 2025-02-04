@@ -12,7 +12,7 @@
 .global brick
 .global bricklane
 
-//--INICIO CHECK_RANGE--//
+
 checkRange:
 //params: x3 = x coord,  x4= y coord
 sub SP, SP, 8 						
@@ -81,7 +81,7 @@ add SP, SP, 8
 ret
 //--FIN CALCULAR_PIXEL--//
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //--INICIO PAINT_PIXEL--//
 paint_pixel:
@@ -126,27 +126,6 @@ ret
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//--INICIO DE PAINT_PIXEL_COND--//
-paint_pixel_cond:
-//parametros, x3 = x coord, x4 = y coord, w10 = colour;
-sub SP, SP, 8 						
-stur X30, [SP, 0]
-
-    bl calcular_pixel
-
-	ldur w14, [x0]   //guardo el color previo de ese pixel en w14
-
-	cmp w14, w21    //si ese pixel es del color que no quiero tocar...
-		b.eq endgame
-	//si no son iguales...
-	colour_pixel:
-    stur w10,[x0]  // Colorear el pixel N
-
-ldr X30, [SP, 0]					 			
-add SP, SP, 8	
-ret
-
-//--INICIO DEL FONDO--//
 background:
 //parametros: w10 = color del fondo, w11 = decremento del color
     sub sp, sp, 8
@@ -279,31 +258,7 @@ changecolor2:
     movk x10,0x576F, lsl 00
     b rectangleDegradeLoop
 
-brick: 
-//parametros: x1 = Width, x2 = Heigh, x3= initial x, x4 = initial y, w10 = color
-    sub sp, sp, 8
-    stur x30, [sp, 0]
 
-    mov x13, x3     //me guardo en x13, la coordenada x inicial de cada fila
-    mov x7, x4       // guardo la coordenada y en x7   
-    mov x9, x1       // guardo el ancho en x9
-    mov x8, x2       // guardo el alto en x8
-    bl rectangle     // dibujo el ladrillo
-    mov x1, x9        // restauro el ancho  
-    mov x4, x7       // restauro la coordenada y
-    add x3, x3, x1  // actualizo la coordenada x para la línea separadora
-    movz x10, 0x0000, lsl 16
-    movk x10, 0x0000, lsl 00
-    mov x2, x8       // altura de la línea separadora
-    mov x1, 1       // ancho de la línea separadora
-    bl rectangle     // dibujo la línea separadora
-
-    //mov x1, x9       // restauro el ancho original
-    mov x4, x7       // restauro la coordenada y original
-
-    ldr x30, [sp, 0]
-    add sp, sp, 8
-    ret
 
 
 

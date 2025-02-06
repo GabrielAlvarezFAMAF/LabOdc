@@ -38,8 +38,7 @@ main:
     mov x8, 7      // Separación entre ventanas en el eje x
     mov x22, 10    // Separación entre filas en el eje y
 
-    bl windows
-
+  
 	
 
     // Segunda invocación de la función windows con diferentes parámetros
@@ -54,13 +53,6 @@ main:
     mov x8, 21     // Separación entre ventanas en el eje x
     mov x22, 10    // Separación entre filas en el eje y
 
-    bl windows
-
-    // Cambiar el color de un píxel específico para indicar que la segunda invocación ha terminado
-    mov x3, 2      // Coordenada x del píxel
-    mov x4, 0      // Coordenada y del píxel
-    movz x10, 0x001F, lsl 0 // Color azul (formato RGB565)
-    bl paint_pixel // Llamar a la función para pintar el píxel
 
 InfLoop:
     b InfLoop

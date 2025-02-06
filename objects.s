@@ -11,7 +11,6 @@ windows:
     stp x1, x2, [sp, 0]  // Guarda x1 y x2 en la pila
     stp x3, x4, [sp, 16] // Guarda x3 y x4 en la pila
 
-row_loop:
     mov x7, x5     // Inicializa el contador de ventanas por fila
 
 window_loop:
@@ -29,14 +28,6 @@ window_loop:
     add x3, x3, x8 // Añade la separación entre ventanas en el eje x
     sub x7, x7, 1  // Decrementa el contador de ventanas
     cbnz x7, window_loop // Si no hemos terminado, repite el bucle
-
-    // Mueve la coordenada y para la siguiente fila de ventanas
-    ldr x3, [sp, 16] // Restaura la coordenada x inicial
-    add x4, x4, x2 // Mueve la coordenada y para la siguiente fila (alto de la ventana)
-    add x4, x4, x22 // Añade la separación entre filas en el eje y
-    stur x4, [sp, 8] // Guarda la nueva coordenada y en la pila
-    sub x6, x6, 1  // Decrementa el contador de filas
-    cbnz x6, row_loop // Si no hemos terminado, repite el bucle
 
     ldr x3, [sp, 16] // Restaura la coordenada x inicial
     ldr x4, [sp, 8] // Restaura la coordenada y inicial

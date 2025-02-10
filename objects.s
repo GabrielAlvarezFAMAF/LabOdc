@@ -8,7 +8,8 @@
 .global luna
 .global arboles
 .global totalWindows
-.global ship
+.global ship1
+.global ship2
 
 windows: 
 // parametros: x1 = Width, x2 = Heigh, x3 = initial x, x4 = initial y, x5 = ventanas por fila, x6 = filas de ventanas, x8 = separación x, x22 = separación y
@@ -192,18 +193,126 @@ arboles :
     bl rectangle
     ret 
 
-ship: 
-    //params  x1 = width, x2 = heigh, x3 = initial x, x4 = initial y
-    sub sp, sp, 16
-    stp x29, x30, [sp, 8]
-    add x29, sp, 8
+ship1: 
+// parametros: x1 = Width, x2 = Heigh, x3 = initial x, x4 = initial y
+    sub sp, sp, 32
+    stp x29, x30, [sp, 16]  // Guarda x29 y x30 en la pila
+    add x29, sp, 16         // Actualiza el marco de pila
+    stp x1, x2, [sp, 0]     // Guarda x1 y x2 en la pila
+    stp x3, x4, [sp, 8]     // Guarda x3 y x4 en la pila
 
     movz x10, 0x0000, lsl 16
     movk x10, 0x0000, lsl 00
-    mov x1, 200
-    mov x2, 50
     bl rectangle
-    ldp x29, x30, [sp, 8]
-    add sp, sp, 16
-    ret 
+
+    // Ventanas
+    ldp x1, x2, [sp, 0]
+    ldp x3, x4, [sp, 8]
+    add x3, x3, 5
+    add x4, x4, 5
+    mov x1, 7
+    mov x2, 9
+    movz x10, 0xFFFF, lsl 16
+    movk x10, 0xFFFF, lsl 00
+    bl rectangle
+
+    ldp x1, x2, [sp, 0]
+    ldp x3, x4, [sp, 8]
+    add x3, x3, 17
+    add x4, x4, 5
+    mov x1, 7
+    mov x2, 9
+    bl rectangle
+
+    // Parte baja del barco
+    movz x10, 0x0000, lsl 16
+    movk x10, 0x0000, lsl 00
+    ldp x1, x2, [sp, 0]
+    ldp x3, x4, [sp, 8]
+    sub x3, x3, 30 
+    add x4, x4, 20
+    mov x1, 75
+    mov x2, 5
+    bl rectangle
+
+    ldp x1, x2, [sp, 0]
+    ldp x3, x4, [sp, 8]
+    sub x3, x3, 27
+    add x4, x4, 25
+    mov x1, 70
+    mov x2, 5
+    bl rectangle
+
+    ldp x1, x2, [sp, 0]
+    ldp x3, x4, [sp, 8]
+    sub x3, x3, 24
+    add x4, x4, 30
+    mov x1, 65
+    mov x2, 5
+    bl rectangle
     
+    ldp x29, x30, [sp, 16]  // Restaura x29 y x30 desde la pila
+    add sp, sp, 32          // Libera los 32 bytes reservados en la pila
+    ret
+    
+ship2: 
+    sub sp, sp, 32
+    stp x29, x30, [sp, 16]  // Guarda x29 y x30 en la pila
+    add x29, sp, 16         // Actualiza el marco de pila
+    stp x1, x2, [sp, 0]     // Guarda x1 y x2 en la pila
+    stp x3, x4, [sp, 8]     // Guarda x3 y x4 en la pila
+
+    movz x10, 0x0000, lsl 16
+    movk x10, 0x0000, lsl 00
+    sub x3, x3, 10
+    bl rectangle
+
+    // Ventanas
+    ldp x1, x2, [sp, 0]
+    ldp x3, x4, [sp, 8]
+    sub x3, x3, 5
+    add x4, x4, 5
+    mov x1, 7
+    mov x2, 9
+    movz x10, 0xFFFF, lsl 16
+    movk x10, 0xFFFF, lsl 00
+    bl rectangle
+
+    ldp x1, x2, [sp, 0]
+    ldp x3, x4, [sp, 8]
+    add x3, x3, 9
+    add x4, x4, 5
+    mov x1, 7
+    mov x2, 9
+    bl rectangle
+
+    // Parte baja del barco
+    movz x10, 0x0000, lsl 16
+    movk x10, 0x0000, lsl 00
+    ldp x1, x2, [sp, 0]
+    ldp x3, x4, [sp, 8]
+    sub x3, x3, 30 
+    add x4, x4, 20
+    mov x1, 75
+    mov x2, 5
+    bl rectangle
+
+    ldp x1, x2, [sp, 0]
+    ldp x3, x4, [sp, 8]
+    sub x3, x3, 27
+    add x4, x4, 25
+    mov x1, 70
+    mov x2, 5
+    bl rectangle
+
+    ldp x1, x2, [sp, 0]
+    ldp x3, x4, [sp, 8]
+    sub x3, x3, 24
+    add x4, x4, 30
+    mov x1, 65
+    mov x2, 5
+    bl rectangle
+    
+    ldp x29, x30, [sp, 16]  // Restaura x29 y x30 desde la pila
+    add sp, sp, 32          // Libera los 32 bytes reservados en la pila
+    ret

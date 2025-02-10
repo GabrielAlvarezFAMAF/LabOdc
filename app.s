@@ -20,7 +20,6 @@ main:
     movk x10, 0x1723, lsl 00
     bl background
     
-    bl ship
     bl estrellas
     bl luna
 
@@ -84,6 +83,17 @@ main:
     mov x22,10    // Separación entre filas en el eje y
     bl windows
 
+    mov x1, 30  
+    mov x2, 20
+    mov x3, 520 
+    mov x4, 370
+    bl ship1
+    
+    mov x1, 30
+    mov x2, 20
+    mov x3, 140
+    mov x4, 370
+    bl ship2 
     //bl arboles
 InfLoop:
     b InfLoop

@@ -160,6 +160,8 @@ background:
     mov x2, 15
     mov x3, 280
     mov x4, 150
+
+    
     //bl rectangle
     mov x1, 15
     mov x2, 10
@@ -220,519 +222,17 @@ background:
     /*ventanas */ 
 
 
-    movz x10 , 0xFFFF , lsl 16
-    movk x10 , 0xFFFF , lsl 00
-    /*primera fila primer edificio */
-    mov x1, 7
-    mov x2, 10
-    mov x3, 242
-    mov x4, 130 
-    bl rectangle
-
-    mov x4, 130 
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 130
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 130
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*segunda fila primer edificio */
-    mov x3,242
-    mov x4, 150
-    bl rectangle
-
-    mov x4, 150
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 150
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 150
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*tercera fila primer edificio */
-    mov x3,242
-    mov x4, 170
-    bl rectangle
-
-    mov x4, 170
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 170
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 170
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*cuarta fila primer edificio */
-    mov x3,242
-    mov x4, 190
-    bl rectangle
-
-    mov x4, 190
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 190
-    add x3 , x3 , 7
-    bl rectangle
-    
-    mov x4, 190
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*quinta fila primer edificio */
-    mov x3,242
-    mov x4, 210
-    bl rectangle
-
-    mov x4, 210
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 210
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 210
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*sexta fila primer edificio */
-    mov x3,242
-    mov x4, 230
-    bl rectangle
-
-    mov x4, 230
-    add x3 , x3 , 7
-    bl rectangle
-    
-    mov x4, 230
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 230
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*septima fila primer edificio */
-    mov x3,242
-    mov x4, 250
-    bl rectangle
-    
-    mov x4, 250
-    add x3 , x3 , 7
-    bl rectangle
-    
-    mov x4, 250
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 250
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*segundo edificio primera fila*/
-    mov x1, 7
-    mov x2, 10
-    mov x3, 350
-    mov x4, 170
-    bl rectangle
-
-    mov x4, 170
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 170
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 170
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*segundo edificio segunda fila*/
-    mov x3,350
-    mov x4, 190
-    bl rectangle
-
-    mov x4, 190
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 190
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 190
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*segundo edificio tercera fila*/
-    mov x3,350
-    mov x4, 210
-    bl rectangle
-    
-    mov x4, 210
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 210
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 210
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*segundo edificio cuarta fila*/
-    mov x3,350
-    mov x4, 230
-    bl rectangle
-
-    mov x4, 230
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 230
-    add x3 , x3 , 7
-    bl rectangle
-    
-    mov x4, 230
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*segundo edificio quinta fila*/
-    mov x3,350
-    mov x4, 250
-    bl rectangle
-
-    mov x4, 250
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 250
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 250
-    add x3 , x3 , 7
-    bl rectangle
-
-
-    /*tercer edificio primera fila */
-    mov x1, 7
-    mov x2, 10
-    mov x3, 440
-    mov x4, 150
-    bl rectangle
-
-    mov x4, 150
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 150
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 150
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*tercer edificio segunda fila */
-    mov x3,440
-    mov x4, 170
-    bl rectangle
-
-    mov x4, 170
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 170
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 170
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*tercer edificio tercera fila */
-    mov x3,440
-    mov x4, 190
-    bl rectangle
-
-    mov x4, 190
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 190
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 190
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*tercer edificio cuarta fila */
-    mov x3,440
-    mov x4, 210
-    bl rectangle
-
-    mov x4, 210
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 210
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 210
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*tercer edificio quinta fila */
-    mov x3,440
-    mov x4, 230
-    bl rectangle
-
-    mov x4, 230
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 230
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 230
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*tercer edificio sexta fila */
-    mov x3,440
-    mov x4, 250
-    bl rectangle
-
-    mov x4, 250
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 250
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 250
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*cuarto edificio primera fila */
-    mov x1, 5
-    mov x2, 8
-    mov x3, 580
-    mov x4, 170
-    bl rectangle
-
-    mov x4, 170
-    add x3 , x3 , 5
-    bl rectangle
-
-    mov x4, 170
-    add x3 , x3 , 5
-    bl rectangle
-
-    /*cuarto edifcio segunda fila */
-    mov x3,580
-    mov x4, 182
-    bl rectangle
-
-    mov x4, 182
-    add x3 , x3 , 5
-    bl rectangle
-
-    mov x4, 182
-    add x3 , x3 , 5
-    bl rectangle
-
-    /*cuarto edificio tercera fila */
-    mov x3,580
-    mov x4, 194
-    bl rectangle
-
-    mov x4, 194
-    add x3 , x3 , 5
-    bl rectangle
-
-    mov x4, 194
-    add x3 , x3 , 5
-    bl rectangle
-
-    /*cuarto edificio cuarta fila */
-    mov x3,580
-    mov x4, 206
-    bl rectangle
-
-    mov x4, 206
-    add x3 , x3 , 5
-    bl rectangle
-
-    mov x4, 206
-    add x3 , x3 , 5
-    bl rectangle
-
-    /*cuarto edificio quinta fila */
-    mov x3,580
-    mov x4, 218
-    bl rectangle
-    
-    mov x4, 218
-    add x3 , x3 , 5
-    bl rectangle
-
-    mov x4, 218
-    add x3 , x3 , 5
-    bl rectangle
-
-    /*cuarto edificio sexta fila */
-    mov x3,580
-    mov x4, 230
-    bl rectangle
-
-    mov x4, 230
-    add x3 , x3 , 5
-    bl rectangle
-
-    mov x4, 230
-    add x3 , x3 , 5
-    bl rectangle
-
-    /*cuarto edificio septima fila */
-    mov x3,580
-    mov x4, 242
-    bl rectangle
-
-    mov x4, 242
-    add x3 , x3 , 5
-    bl rectangle
-    
-    mov x4, 242
-    add x3 , x3 , 5
-    bl rectangle
-
-    /*cuarto edificio octava fila */
-    mov x3,580
-    mov x4, 254
-    bl rectangle
-
-    mov x4, 254
-    add x3 , x3 , 5
-    bl rectangle
-
-    mov x4, 254
-    add x3 , x3 , 5
-    bl rectangle
-
-    /*quinto edificio primera fila */
-    mov x1, 7
-    mov x2, 10
-    mov x3, 140
-    mov x4, 165
-    bl rectangle
-
-    mov x4, 165
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 165
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 165
-    add x3 , x3 , 7
-    bl rectangle
-
-
-    /*quinto edificio segunda fila */
-    mov x3,140
-    mov x4, 185
-    bl rectangle
-
-    mov x4, 185
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 185
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 185
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*quinto edificio tercera fila */
-    mov x3,140
-    mov x4, 205
-    bl rectangle
-
-    mov x4, 205
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 205
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 205
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*quinto edificio cuarta fila */
-    mov x3,140
-    mov x4, 225
-    bl rectangle
-
-    mov x4, 225
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 225
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 225
-    add x3 , x3 , 7
-    bl rectangle
-
-    /*quinto edificio quinta fila */
-    mov x3,140
-    mov x4, 245
-    bl rectangle
-
-    mov x4, 245
-    add x3 , x3 , 7
-    bl rectangle
-    
-    mov x4, 245
-    add x3 , x3 , 7
-    bl rectangle
-
-    mov x4, 245
-    add x3 , x3 , 7
-    bl rectangle
+   
 
     /* espeacio entre edifcios */
     movz x10, 0x0003, lsl 16
     movk x10, 0x1723, lsl 00
-    
+    mov x1,20 
+    mov x2, 50
+    mov x3, 20
+    mov x4, 230
+    bl rectangle
+
     mov x1, 80
     mov x2, 140
     mov x3, 40
@@ -768,125 +268,186 @@ background:
     mov x3, 620
     mov x4, 130
     bl rectangle
-    /*estrellas */ 
+
+
+
+    /* lineas divisoras*/ 
+
+    movz x10, 0x0003, lsl 16
+    movk x10, 0x1723, lsl 00
+    mov x1, 640
+    mov x2, 10
+    mov x3, 0
+    mov x4, 300
+    bl rectangle
+
     movz x10, 0xFFFF, lsl 16
     movk x10, 0xFFFF, lsl 00
-    mov x1, 3
+    mov x1, 640
+    mov x2, 2
+    mov x3, 0
+    mov x4, 310
+    bl rectangle
+
+    /* Texturas rio  */
+    //movz x10, 0x0065, lsl 16
+    //movk x10, 0x9AAD, lsl 00 
+    movz x10, 0x00CF, lsl 16
+    movk x10, 0xF4FF, lsl 00
+    mov x1, 100
     mov x2, 3
-    mov x3, 10
-    mov x4, 20 
-    bl rectangle
-    
-    mov x3, 40
-    mov x4, 50
+    mov x3, 30
+    mov x4, 320
     bl rectangle
 
-    mov x3, 60
-    mov x4, 70
-    bl rectangle
-
-    mov x3, 100
-    mov x4, 20
-    bl rectangle
-
-    mov x3, 110
-    mov x4, 50
-    bl rectangle
-
-    mov x3, 130
-    mov x4, 70
-    bl rectangle
-
+    mov x1, 125
+    mov x2, 3
     mov x3, 170
-    mov x4, 20
+    mov x4, 320
     bl rectangle
 
-    mov x3, 180
-    mov x4, 50
-    bl rectangle
-
-    mov x3, 260 
-    mov x4, 70
-    bl rectangle
-
-    mov x3, 400
-    mov x4, 20
-    bl rectangle
-
-    mov x3, 410
-    mov x4, 20
-    bl rectangle
-
-    mov x3, 420
-    mov x4, 20
-    bl rectangle
-
-    mov x3, 490
-    mov x4, 60
-    bl rectangle
-
-    mov x3, 500
-    mov x4, 90
-    bl rectangle
-
-    mov x3, 560 
-    mov x4, 70
-    bl rectangle
-
-    mov x3, 580
-    mov x4, 20
-    bl rectangle
-
-    mov x3, 590
-    mov x4, 50
-    bl rectangle
-
-    mov x3, 610
-    mov x4, 70
-    bl rectangle
-
-    mov x3, 620
-    mov x4, 20
-    bl rectangle
-
-    /*luna  */
-    movz x10, 0x00F8, lsl 16
-    movk x10, 0xF7C3, lsl 00
-    mov x1, 20
+    mov x1, 100
     mov x2, 3
-    mov x3, 285
-    mov x4, 20
+    mov x3, 320
+    mov x4, 320
     bl rectangle
-    mov x1, 30 
+
+    mov x1, 125
     mov x2, 3
-    mov x3, 280
-    mov x4, 23
+    mov x3, 470
+    mov x4, 320
     bl rectangle
-    mov x1, 40
-    mov x2, 15
-    mov x3, 275
-    mov x4, 26
-    bl rectangle
+
     mov x1, 30
     mov x2, 3
-    mov x3, 280
-    mov x4, 41
-    bl rectangle
-    mov x1, 20
-    mov x2, 3
-    mov x3, 285
-    mov x4, 44
+    mov x3, 620
+    mov x4, 320
     bl rectangle
 
+    mov x1, 20
+    mov x2, 3
+    mov x3, 0
+    mov x4, 320
+    bl rectangle
+
+    mov x1, 80
+    mov x2, 3
+    mov x3, 35
+    mov x4, 340
+    bl rectangle
+
+    mov x1, 45
+    mov x2, 3
+    mov x3, 200
+    mov x4, 340
+    bl rectangle
+
+    mov x1, 80
+    mov x2, 3
+    mov x3, 320
+    mov x4, 340
+    bl rectangle
+
+    mov x1, 60
+    mov x2, 3
+    mov x3, 500
+    mov x4, 340
+    bl rectangle
+
+    mov x1, 30
+    mov x2, 3
+    mov x3, 50
+    mov x4, 360
+    bl rectangle
+
+    mov x1, 70
+    mov x2, 3
+    mov x3, 200
+    mov x4, 360
+    bl rectangle
+
+    mov x1, 40
+    mov x2, 3
+    mov x3, 350
+    mov x4, 360
+    bl rectangle
+
+    mov x1, 60
+    mov x2, 3
+    mov x3, 510
+    mov x4, 360
+    bl rectangle
+
+    mov x1, 20
+    mov x2, 3
+    mov x3, 0
+    mov x4, 380
+    bl rectangle
+
+    mov x1, 80
+    mov x2, 3
+    mov x3, 35
+    mov x4, 400
+    bl rectangle
+
+    mov x1, 45
+    mov x2, 3
+    mov x3, 200
+    mov x4, 400
+    bl rectangle
+
+    mov x1, 80
+    mov x2, 3
+    mov x3, 320
+    mov x4, 400
+    bl rectangle
+
+    mov x1, 60
+    mov x2, 3
+    mov x3, 500
+    mov x4, 400
+    bl rectangle
+
+    mov x1, 30
+    mov x2, 3
+    mov x3, 50
+    mov x4, 420
+    bl rectangle
+    
     /* arbustos */ 
     movz x10, 0x0014, lsl 16
     movk x10, 0x2204, lsl 00
-    mov x1, 30
+    mov x1, 10
     mov x2, 10
     mov x3, 0
     mov x4, 270
     bl rectangle
+    mov x1, 25
+    mov x2, 10
+    mov x3, 0
+    mov x4, 280
+    bl rectangle
+    mov x1, 35
+    mov x2, 10
+    mov x3, 0
+    mov x4, 290
+    bl rectangle
 
+    mov x1, 10
+    mov x2, 10
+    mov x3, 630
+    mov x4, 270
+    bl rectangle
+    mov x1, 25
+    mov x2, 10
+    mov x3, 615
+    mov x4, 280
+    bl rectangle
+    mov x1, 35
+    mov x2, 10
+    mov x3, 605
+    mov x4, 290
+    bl rectangle
     
 
     ldr x30, [sp, 0]
@@ -927,9 +488,10 @@ changecolor1:
     movk x10, 0x2D39, lsl 00
     b rectangleDegradeLoop
 changecolor2:
-    movz x10,0x0007, lsl 16
-    movk x10,0x576F, lsl 00
+    movz x10,0x002D, lsl 16
+    movk x10,0x5D6D, lsl 00
     b rectangleDegradeLoop
+
 
 
 

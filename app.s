@@ -19,41 +19,72 @@ main:
     movz x10, 0x0003, lsl 16
     movk x10, 0x1723, lsl 00
     bl background
-    mov x1, 120
-    mov x2, 10
-    mov x3, 50
-    mov x4, 50
-    movz x10, 0x0000, lsl 16
-    movk x10, 0x0000, lsl 00
-    /* Configuracion y color de las ventanas  */
+    
+    bl ship
+    bl estrellas
+    bl luna
 
     movz x10 , 0xFFFF , lsl 16 
     movk x10 , 0xFFFF , lsl 00
     mov x1, 7      // Ancho de la ventana
     mov x2, 10     // Alto de la ventana
-    mov x3, 242    // Coordenada x inicial
-    mov x4, 130    // Coordenada y inicial
+    mov x3, 140    // Coordenada x inicial
+    mov x4, 160    // Coordenada y inicial
+    mov x5, 4      // Número de ventanas por fila
+    mov x6, 6      // Número de filas de ventanas
+    mov x8, 7      // Separación entre ventanas en el eje x
+    mov x22, 10    // Separación entre filas en el eje y
+    bl windows
+
+    movz x10 , 0xFFFF , lsl 16 
+    movk x10 , 0x00FF , lsl 00
+    mov x1, 7      // Ancho de la ventana
+    mov x2, 10     // Alto de la ventana
+    mov x3, 240    // Coordenada x inicial
+    mov x4, 120   // Coordenada y inicial
+    mov x5, 4      // Número de ventanas por fila
+    mov x6, 8      // Número de filas de ventanas
+    mov x8, 7      // Separación entre ventanas en el eje x
+    mov x22, 10    // Separación entre filas en el eje y
+    bl windows
+
+    movz x10 , 0xFFFF , lsl 16 
+    movk x10 , 0x00FF , lsl 00
+    mov x1, 7      // Ancho de la ventana
+    mov x2, 10     // Alto de la ventana
+    mov x3, 350    // Coordenada x inicial
+    mov x4, 160   // Coordenada y inicial
+    mov x5, 4      // Número de ventanas por fila
+    mov x6, 6     // Número de filas de ventanas
+    mov x8, 7      // Separación entre ventanas en el eje x
+    mov x22, 10    // Separación entre filas en el eje y
+    bl windows
+
+    movz x10 , 0xFFFF , lsl 16 
+    movk x10 , 0x00FF , lsl 00
+    mov x1, 7      // Ancho de la ventana
+    mov x2, 10     // Alto de la ventana
+    mov x3, 440    // Coordenada x inicial
+    mov x4, 140  // Coordenada y inicial
     mov x5, 4      // Número de ventanas por fila
     mov x6, 7      // Número de filas de ventanas
     mov x8, 7      // Separación entre ventanas en el eje x
     mov x22, 10    // Separación entre filas en el eje y
+    bl windows
 
-  
-	
-
-    // Segunda invocación de la función windows con diferentes parámetros
-    movz x10 , 0x0000 , lsl 16 
+    movz x10 , 0xFFFF , lsl 16 
     movk x10 , 0x00FF , lsl 00
-    mov x1, 7      // Ancho de la ventana
-    mov x2, 10     // Alto de la ventana
-    mov x3, 282    // Coordenada x inicial
-    mov x4, 110    // Coordenada y inicial
-    mov x5, 4      // Número de ventanas por fila
-    mov x6, 7      // Número de filas de ventanas
-    mov x8, 21     // Separación entre ventanas en el eje x
-    mov x22, 10    // Separación entre filas en el eje y
+    mov x1, 5      // Ancho de la ventana
+    mov x2, 7     // Alto de la ventana
+    mov x3, 575   // Coordenada x inicial
+    mov x4, 170   // Coordenada y inicial
+    mov x5, 3      // Número de ventanas por fila
+    mov x6, 6      // Número de filas de ventanas
+    mov x8, 10      // Separación entre ventanas en el eje x
+    mov x22,10    // Separación entre filas en el eje y
+    bl windows
 
-
+    //bl arboles
 InfLoop:
     b InfLoop
 

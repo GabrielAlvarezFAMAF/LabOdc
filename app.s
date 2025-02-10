@@ -83,17 +83,15 @@ main:
     mov x22,10    // Separación entre filas en el eje y
     bl windows
 
-    mov x1, 30  
-    mov x2, 20
-    mov x3, 520 
+
+    // comienzo el bucle de animacion 
+    mov x1, 30 
+    mov x2 , 20 
+    mov x3, 520
     mov x4, 370
-    bl ship1
-    
-    mov x1, 30
-    mov x2, 20
-    mov x3, 140
-    mov x4, 370
-    bl ship2 
+    mov x14 ,140
+    mov x15 , 370
+    bl animacionloop
     //bl arboles
 InfLoop:
     b InfLoop

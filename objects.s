@@ -10,6 +10,7 @@
 .global totalWindows
 .global ship1
 .global ship2
+.global boom
 
 windows: 
 // parametros: x1 = Width, x2 = Heigh, x3 = initial x, x4 = initial y, x5 = ventanas por fila, x6 = filas de ventanas, x8 = separación x, x22 = separación y
@@ -316,3 +317,8 @@ ship2:
     ldp x29, x30, [sp, 16]  // Restaura x29 y x30 desde la pila
     add sp, sp, 32          // Libera los 32 bytes reservados en la pila
     ret
+
+
+
+
+    

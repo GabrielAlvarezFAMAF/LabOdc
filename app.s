@@ -18,6 +18,7 @@ main:
 
     movz x10, 0x0003, lsl 16
     movk x10, 0x1723, lsl 00
+    
     bl background
     
     bl estrellas
@@ -87,12 +88,14 @@ main:
     // comienzo el bucle de animacion 
     mov x1, 30 
     mov x2 , 20 
-    mov x3, 520
+    mov x3, 500
     mov x4, 370
-    mov x14 ,140
+    mov x14 ,100
     mov x15 , 370
     bl animacionloop
+    bl rectangle
     //bl arboles
+    //bl boom 
 InfLoop:
     b InfLoop
 

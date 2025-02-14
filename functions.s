@@ -10,6 +10,7 @@
 .global background
 .global rectangleDegrade
 .global animacionloop
+.global boomAnimacion
 
 checkRange:
 //params: x3 = x coord,  x4= y coord
@@ -496,41 +497,54 @@ animacionloop:
 // params : x1= ancho del barco , x2 alto del barco 
 // x3 = coordenada x inicial , x4 = coordenada y inicial PRIMER BARCO
 // x14 = coordenada x inicial , x15 = coordenada y inicial SEGUNDO BARCO
+    
+    
     sub sp, sp, 16
-    stp x29, x30, [sp, 8]  // Guarda x29 y x30 en la pila
+    stp x29, x30, [sp, 0]  // Guarda x29 y x30 en la pila
     add x29, sp, 8         // Actualiza el marco de pila
-    stp x1, x2, [sp, 0]     // Guarda x1 y x2 en la pila
-    stp x3, x4, [sp, 8]     // Guarda x3 y x4 en la pila
+    stp x3, x4, [sp, 8]     // Guarda x3 y x4 en la pila    
     stp x14, x15, [sp, 16]     // Guarda x14 y x15 en la pila
-    mov x26, 10             // contador de animacion
+    mov x27, #170            // contador de animacion
     animacionControl:
     bl animacionRectangle
-    //restablecer coordenadas x15 y x4
-    ldr x4, [sp, 8] // Restaura x4 desde la pila
-    //ldr x15, [sp, 16] // Restaura x15 desde la pila
-    sub x3 , x3 , 10
-    add x14 , x14 , 10
+    
+    
+    ldr x3, [sp, 8]  // Restaura x3 y 
+    ldr x14, [sp, 16]  // Restaura x14 
+
+    sub  x3 , x3 , 1
+    add x14 , x14 ,1
+
+    str x3, [sp, 8]     // Guarda x3 
+    str x14, [sp, 16]     // Guarda x14 
+
     // Dibujar el primer barco
     mov x1, 30
     mov x2, 20
-    mov x10, 0x000000
+    mov x3, x3
+    mov x4, 370
     bl ship1
 
     // Dibujar el segundo barco
     mov x1, 30
     mov x2, 20
     mov x3, x14
-    mov x4, x15
+    mov x4, 370
     bl ship2 
+
     
+    mov x22,#10000
+    bl delay
+    
+    sub x27, x27, #1
+    cbnz x27, animacionControl
+    //bl boomAnimacion
 
+    // volver los valores de la pila a sus estado original 
+    ldp x29, x30, [sp, 0]  // Restaura x29 y x30 desde la pila
 
-    sub x26, x26, 1
-    cmp x26, 0
-    bne animacionControl
-
-    ldp x29, x30, [sp, 8]  // Restaura x29 y x30 desde la pila
     add sp, sp, 16         // Libera los 16 bytes reservados en la pila
+
     ret
 
 animacionRectangle: 
@@ -538,7 +552,6 @@ animacionRectangle:
     sub sp, sp, 16
     stp x29, x30, [sp, 8]  // Guarda x29 y x30 en la pila
     add x29, sp, 8         // Actualiza el marco de pila
-
     movz x10, 0x002D, lsl 16
     movk x10, 0x5D6D, lsl 0
     mov x1, 640
@@ -551,13 +564,29 @@ animacionRectangle:
     add sp, sp, 16         // Libera los 16 bytes reservados en la pila
     ret
 
-delay: 
-mov x24, #10000
-delayLoop:
-    sub x24, x24, 1
-    cbnz x24, delayLoop
+delay:     
+    sub x22, x22, 1
+    cbnz x22, delay
     ret
 
+
+boomAnimacion: 
+
+sub sp , sp , 16
+stp x29 , x30 , [sp , 0]
+add x29 , sp , 0
+    mov x27 , 170
+    boomAnimacionControl:
+    movz x10 , 0x00FF , lsl 16
+    movk x10 , 0xFFFF , lsl 00
+    mov x1 , 30
+    mov x2 , 20
+    mov x3, 320
+    bl rectangle
+
+ldp x29 , x30 , [sp , 0]
+add sp , sp , 16
+ret
 
 
 

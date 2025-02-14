@@ -93,7 +93,7 @@ main:
     mov x14 ,100
     mov x15 , 370
     bl animacionloop
-    bl rectangle
+    //bl rectangle
     //bl arboles
     //bl boom 
 InfLoop:

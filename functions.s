@@ -538,7 +538,7 @@ animacionloop:
     
     sub x27, x27, #1
     cbnz x27, animacionControl
-    //bl boomAnimacion
+    bl boomAnimacion
 
     // volver los valores de la pila a sus estado original 
     ldp x29, x30, [sp, 0]  // Restaura x29 y x30 desde la pila
@@ -564,11 +564,27 @@ animacionRectangle:
     add sp, sp, 16         // Libera los 16 bytes reservados en la pila
     ret
 
-delay:     
-    sub x22, x22, 1
-    cbnz x22, delay
+delay: 
+    mov x24, #1000       // Contador del bucle externo
+delay_outer_loop:
+    mov x25, #10000        // Contador del bucle interno
+delay_inner_loop:
+    sub x25, x25, 1
+    cbnz x25, delay_inner_loop
+    sub x24, x24, 1
+    cbnz x24, delay_outer_loop
     ret
 
+delay2: 
+    mov x24, #10000       // Contador del bucle externo
+delay_outer_loop2:
+    mov x25, #10000        // Contador del bucle interno
+delay_inner_loop2:
+    sub x25, x25, 1
+    cbnz x25, delay_inner_loop2
+    sub x24, x24, 1
+    cbnz x24, delay_outer_loop2
+    ret
 
 boomAnimacion: 
 
@@ -577,11 +593,90 @@ stp x29 , x30 , [sp , 0]
 add x29 , sp , 0
     mov x27 , 170
     boomAnimacionControl:
+
+    /*blanco  */
     movz x10 , 0x00FF , lsl 16
     movk x10 , 0xFFFF , lsl 00
+
+    mov x1 , 40
+    mov x2 , 5
+    mov x3, 290
+    mov x4, 390
+    bl rectangle
+    mov x1 , 35 
+    mov x2 , 5
+    mov x3, 300
+    mov x4, 385
+    bl rectangle
+    mov x1 , 25
+    mov x2 , 5
+    mov x3, 310
+    mov x4, 380
+    bl rectangle
+    mov x1 , 25
+    mov x2 , 5
+    mov x3, 300
+    mov x4, 395
+    bl rectangle
+
+    //mov x19,#10000
+    bl delay2
+
+    
+    /* Naranja  */
+    movz x10 , 0x00FD , lsl 16
+    movk x10 , 0x8D06 , lsl 00
+
+
+    mov x1 , 15
+    mov x2 , 5
+    mov x3, 325
+    mov x4, 395
+    bl rectangle
+    mov x1 , 15
+    mov x2 , 10
+    mov x3, 330
+    mov x4, 390
+    bl rectangle
+    mov x1 , 15
+    mov x2 , 5
+    mov x3, 335
+    mov x4, 385
+    bl rectangle
     mov x1 , 30
-    mov x2 , 20
+    mov x2 , 10
+    mov x3, 310
+    mov x4, 400
+    bl rectangle
+    mov x1 , 20
+    mov x2 , 5
     mov x3, 320
+    mov x4, 410
+    bl rectangle
+    mov x1 , 20
+    mov x2 , 5
+    mov x3, 290
+    mov x4, 380
+    bl rectangle
+    mov x1 , 10
+    mov x2 , 5
+    mov x3, 290
+    mov x4, 385
+    bl rectangle
+    mov x1 , 50
+    mov x2 , 5
+    mov x3, 285
+    mov x4, 375
+    bl rectangle
+    mov x1 , 10
+    mov x2 , 5
+    mov x3, 290
+    mov x4, 395
+    bl rectangle
+    mov x1 , 20
+    mov x2 , 10
+    mov x3, 290
+    mov x4, 400
     bl rectangle
 
 ldp x29 , x30 , [sp , 0]

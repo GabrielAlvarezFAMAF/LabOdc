@@ -11,7 +11,9 @@
 .global ship1
 .global ship2
 .global boom
-
+.global fuego1
+.global fuego2
+.global fuego3
 windows: 
 // parametros: x1 = Width, x2 = Heigh, x3 = initial x, x4 = initial y, x5 = ventanas por fila, x6 = filas de ventanas, x8 = separación x, x22 = separación y
     sub sp, sp, 32
@@ -318,7 +320,443 @@ ship2:
     add sp, sp, 32          // Libera los 32 bytes reservados en la pila
     ret
 
+fuego1: 
+sub sp , sp , 16
+stp x29 , x30 , [sp , 0]
+add x29 , sp , 0
+    /*rojo */
+    movz x10 , 0x00FB , lsl 16
+    movk x10 , 0x361F , lsl 00
+    mov x1 , 40
+    mov x2 , 5
+    mov x3 , 280
+    mov x4 , 400
+    bl rectangle
+    mov x1 , 50
+    mov x2 , 5
+    mov x3 , 275
+    mov x4 , 395
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 390
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 385
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 380
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 375
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 370
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 365
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 360
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 355
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 350
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 345
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3 , 275
+    mov x4 , 340
+    bl rectangle
+    mov x1 , 20
+    mov x2 , 5
+    mov x3 , 290
+    mov x4 , 340
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3 , 325
+    mov x4 , 340
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3 , 300
+    mov x4 , 335
+    bl rectangle
+
+    mov x1 , 5
+    mov x2 , 3
+    mov x3 , 250
+    mov x4 , 320
+    bl rectangle
+    /*naranja */
+    movz x10 , 0x00FF , lsl 16
+    movk x10 , 0x7C00 , lsl 00
+    mov x1 , 5
+    mov x2 , 3
+    mov x3 ,350
+    mov x4 , 325
+    bl rectangle
+
+    /*texturas  */
+
+    mov x1 , 25
+    mov x2 , 5
+    mov x3 , 290
+    mov x4 , 395
+    bl rectangle
+    mov x1 , 35
+    mov x2 , 5
+    mov x3 , 285
+    mov x4 , 390
+    bl rectangle
+    mov x1 , 45
+    mov x2 , 5
+    mov x3 , 280
+    mov x4 , 385    
+    bl rectangle
+    mov x1 , 4
+    mov x2 , 10
+    mov x3 , 285
+    mov x4 , 375
+    bl rectangle
+    mov x1 , 4
+    mov x2 , 20
+    mov x3 , 310
+    mov x4 , 365 
+    bl rectangle
+    mov x1 , 4
+    mov x2 , 10
+    mov x3 , 315
+    mov x4 , 375
+    bl rectangle
+    mov x1 , 4
+    mov x2 , 30
+    mov x3 , 300
+    mov x4 , 355
+    bl rectangle
+    
+ldp x29 , x30 , [sp , 0]
+add sp , sp , 16
+
+ret
+
+fuego2: 
+sub sp , sp , 16
+stp x29 , x30 , [sp , 0]
+add x29 , sp , 0
+    /*rojo */
+    movz x10 , 0x00FB , lsl 16
+    movk x10 , 0x361F , lsl 00
+    mov x1 , 40
+    mov x2 , 5
+    mov x3 , 280
+    mov x4 , 400
+    bl rectangle
+    mov x1 , 50
+    mov x2 , 5
+    mov x3 , 275
+    mov x4 , 395
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 390
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 385
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 380
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 375
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 370
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 365
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 360
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 355
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 350
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 345
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3 , 280
+    mov x4 , 340
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3 , 290
+    mov x4 , 340
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3 , 320
+    mov x4 , 340
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3 , 300
+    mov x4 , 335
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 20
+    mov x3 , 290
+    mov x4 , 325
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 15
+    mov x3 , 310
+    mov x4 , 330
+    bl rectangle
+
+    mov x1 , 5
+    mov x2 , 3
+    mov x3 , 250
+    mov x4 , 330
+    bl rectangle
+    /*naranja */
+    movz x10 , 0x00FF , lsl 16
+    movk x10 , 0x7C00 , lsl 00
+    mov x1 , 5
+    mov x2 , 3
+    mov x3 ,350
+    mov x4 , 320
+    bl rectangle
+
+    /*texturas  */
+
+    mov x1 , 30
+    mov x2 , 5
+    mov x3 , 290
+    mov x4 , 395
+    bl rectangle
+    mov x1 , 22
+    mov x2 , 5
+    mov x3 , 285
+    mov x4 , 390
+    bl rectangle
+    mov x1 , 15
+    mov x2 , 5
+    mov x3 , 280
+    mov x4 , 385
+    bl rectangle
+    mov x1 , 4
+    mov x2 , 10
+    mov x3 , 285
+    mov x4 , 375
+    bl rectangle
+    mov x1 , 4
+    mov x2 , 20
+    mov x3 , 310
+    mov x4 , 365
+    bl rectangle
+    mov x1 , 4
+    mov x2 , 10
+    mov x3 , 315
+    mov x4 , 375
+    bl rectangle
+
+ldp x29 , x30 , [sp , 0]
+add sp , sp , 16
+ret 
+
+fuego3: 
+sub sp , sp , 16
+stp x29 , x30 , [sp , 0]
+add x29 ,sp , 0
+    /*rojo */
+    movz x10 , 0x00FB , lsl 16
+    movk x10 , 0x361F , lsl 00
+    mov x1 , 40
+    mov x2 , 5
+    mov x3 , 280
+    mov x4 , 400
+    bl rectangle
+    mov x1 , 50
+    mov x2 , 5
+    mov x3 , 275
+    mov x4 , 395
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 390
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 385
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 380
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 375
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 370
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 365
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5  
+    mov x3 , 265
+    mov x4 , 360
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 265
+    mov x4 , 355
+    bl rectangle
+    mov x1 , 70
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 350
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3 , 270
+    mov x4 , 345
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 20
+    mov x3 , 285
+    mov x4 , 325
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 15
+    mov x3 , 270
+    mov x4 , 330
+    bl rectangle
+    mov x1 , 5 
+    mov x2 , 5
+    mov x3 , 275
+    mov x4 , 340
+    
 
 
 
+    mov x1 , 5
+    mov x2 , 3
+    mov x3 , 340
+    mov x4 , 320
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 3
+    mov x3 , 260
+    mov x4 , 325
+    bl rectangle
+    /*naranja */
+    movz x10 , 0x00FF , lsl 16
+    movk x10 , 0x7C00 , lsl 00
+
+    mov x1 , 5
+    mov x2 , 3
+    mov x3 ,350
+    mov x4 , 320
+    bl rectangle
+
+    /*texturas  */
+
+    mov x1 , 3
+    mov x2 , 15
+    mov x3 , 285
+    mov x4 , 355
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 17
+    mov x3 , 295
+    mov x4 , 345
+    bl rectangle
+
+    mov x1 , 30
+    mov x2 , 5
+    mov x3 , 290
+    mov x4 , 395
+    bl rectangle
+    mov x1 , 22
+    mov x2 , 5
+    mov x3 , 285
+    mov x4 , 390
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 10
+    mov x3 , 295
+    mov x4 , 355
+    bl rectangle
+
+    mov x1 , 4
+    mov x2 , 10
+    mov x3 , 315
+    mov x4 , 375
+    bl rectangle
+    
+    
+
+ldp x29 , x30 , [sp , 0]
+add sp , sp , 16
+ret 
     

@@ -288,134 +288,7 @@ background:
     mov x4, 310
     bl rectangle
 
-    /* Texturas rio  */
-    //movz x10, 0x0065, lsl 16
-    //movk x10, 0x9AAD, lsl 00 
 
-    /* 
-    movz x10, 0x00CF, lsl 16
-    movk x10, 0xF4FF, lsl 00
-    mov x1, 100
-    mov x2, 3
-    mov x3, 30
-    mov x4, 320
-    bl rectangle
-
-    mov x1, 125
-    mov x2, 3
-    mov x3, 170
-    mov x4, 320
-    bl rectangle
-
-    mov x1, 100
-    mov x2, 3
-    mov x3, 320
-    mov x4, 320
-    bl rectangle
-
-    mov x1, 125
-    mov x2, 3
-    mov x3, 470
-    mov x4, 320
-    bl rectangle
-
-    mov x1, 30
-    mov x2, 3
-    mov x3, 620
-    mov x4, 320
-    bl rectangle
-
-    mov x1, 20
-    mov x2, 3
-    mov x3, 0
-    mov x4, 320
-    bl rectangle
-
-    mov x1, 80
-    mov x2, 3
-    mov x3, 35
-    mov x4, 340
-    bl rectangle
-
-    mov x1, 45
-    mov x2, 3
-    mov x3, 200
-    mov x4, 340
-    bl rectangle
-
-    mov x1, 80
-    mov x2, 3
-    mov x3, 320
-    mov x4, 340
-    bl rectangle
-
-    mov x1, 60
-    mov x2, 3
-    mov x3, 500
-    mov x4, 340
-    bl rectangle
-
-    mov x1, 30
-    mov x2, 3
-    mov x3, 50
-    mov x4, 360
-    bl rectangle
-
-    mov x1, 70
-    mov x2, 3
-    mov x3, 200
-    mov x4, 360
-    bl rectangle
-
-    mov x1, 40
-    mov x2, 3
-    mov x3, 350
-    mov x4, 360
-    bl rectangle
-
-    mov x1, 60
-    mov x2, 3
-    mov x3, 510
-    mov x4, 360
-    bl rectangle
-
-    mov x1, 20
-    mov x2, 3
-    mov x3, 0
-    mov x4, 380
-    bl rectangle
-
-    mov x1, 80
-    mov x2, 3
-    mov x3, 35
-    mov x4, 400
-    bl rectangle
-
-    mov x1, 45
-    mov x2, 3
-    mov x3, 200
-    mov x4, 400
-    bl rectangle
-
-    mov x1, 80
-    mov x2, 3
-    mov x3, 320
-    mov x4, 400
-    bl rectangle
-
-    mov x1, 60
-    mov x2, 3
-    mov x3, 500
-    mov x4, 400
-    bl rectangle
-
-    mov x1, 30
-    mov x2, 3
-    mov x3, 50
-    mov x4, 420
-    bl rectangle
-    */
-    /* arbustos */ 
     movz x10, 0x0014, lsl 16
     movk x10, 0x2204, lsl 00
     mov x1, 10
@@ -539,7 +412,10 @@ animacionloop:
     sub x27, x27, #1
     cbnz x27, animacionControl
     bl boomAnimacion
-
+    bl delay2
+    bl animacionRectangle
+    bl animacionFuego
+    
     // volver los valores de la pila a sus estado original 
     ldp x29, x30, [sp, 0]  // Restaura x29 y x30 desde la pila
 
@@ -597,7 +473,7 @@ add x29 , sp , 0
     /*blanco  */
     movz x10 , 0x00FF , lsl 16
     movk x10 , 0xFFFF , lsl 00
-
+    /*primera nube blanco  */
     mov x1 , 40
     mov x2 , 5
     mov x3, 290
@@ -618,8 +494,42 @@ add x29 , sp , 0
     mov x3, 300
     mov x4, 395
     bl rectangle
+    /*fin primera nube blanco */
 
-    //mov x19,#10000
+    /*segunda nube blanco */
+    mov x1 , 15
+    mov x2 , 20
+    mov x3, 350
+    mov x4, 380
+    bl rectangle
+    mov x1 , 10
+    mov x2 ,20
+    mov x3, 365
+    mov x4, 375
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 350
+    mov x4, 400
+    bl rectangle
+    /*fin segunda nube blanco */
+    /*tercera nube blanco */
+    mov x1 , 20
+    mov x2 , 10
+    mov x3, 270
+    mov x4, 375
+    bl rectangle
+    mov x1 , 10
+    mov x2 , 15
+    mov x3, 280
+    mov x4, 380
+    bl rectangle
+    mov x1 , 10
+    mov x2 , 5
+    mov x3, 270
+    mov x4, 385
+    bl rectangle
+    /*fin tercera nube blanco */
     bl delay2
 
     
@@ -627,7 +537,7 @@ add x29 , sp , 0
     movz x10 , 0x00FD , lsl 16
     movk x10 , 0x8D06 , lsl 00
 
-
+    /*primera nube naranja*/
     mov x1 , 15
     mov x2 , 5
     mov x3, 325
@@ -678,13 +588,400 @@ add x29 , sp , 0
     mov x3, 290
     mov x4, 400
     bl rectangle
+    mov x1 , 25
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 380
+    bl rectangle
+    /*fin primera nube naranja */
+
+    /*segunda nube naranja */
+    mov x1 , 30
+    mov x2 , 5
+    mov x3, 355
+    mov x4, 400
+    bl rectangle
+    mov x1 , 15
+    mov x2 , 5
+    mov x3, 365
+    mov x4, 395
+    bl rectangle
+    mov x1 , 40
+    mov x2 , 5
+    mov x3, 340
+    mov x4, 405
+    bl rectangle
+    mov x1 , 40
+    mov x2 , 5
+    mov x3, 340
+    mov x4, 410
+    bl rectangle
+    mov x1 , 10
+    mov x2 , 40
+    mov x3, 375
+    mov x4, 375
+    bl rectangle
+    mov x1 , 20
+    mov x2 , 10
+    mov x3, 350
+    mov x4, 370
+    bl rectangle
+    mov x1 , 30
+    mov x2 , 5
+    mov x3, 360
+    mov x4, 370
+    bl rectangle
+
+    /*fin segunda nube naranja */
+
+    /*tercera nube naranja */
+    mov x1 , 40
+    mov x2 , 5
+    mov x3, 240
+    mov x4, 390
+    bl rectangle
+    mov x1 , 15
+    mov x2 , 5
+    mov x3, 250
+    mov x4, 380
+    bl rectangle
+    mov x1 , 30
+    mov x2 , 5
+    mov x3, 240
+    mov x4, 385
+    bl rectangle
+    mov x1 , 20
+    mov x2 , 5
+    mov x3, 250
+    mov x4, 375
+    bl rectangle
+    mov x1 , 40
+    mov x2 , 5
+    mov x3, 250
+    mov x4, 370
+    bl rectangle
+    mov x1 , 50
+    mov x2 , 15
+    mov x3, 240
+    mov x4, 395
+    bl rectangle
+    /*fin tercera nube naranja  */
+
+    bl delay2
+
+    /* Rojo  */
+    movz x10 , 0x00FB , lsl 16
+    movk x10 , 0x361F , lsl 00
+    /*primera nube rojo */
+
+    mov x1 , 5
+    mov x2 , 35
+    mov x3, 285
+    mov x4, 380
+    bl rectangle
+    mov x1 , 32
+    mov x2 , 5
+    mov x3, 290
+    mov x4, 410
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 15
+    mov x3, 345
+    mov x4, 390
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 20
+    mov x3, 340
+    mov x4, 400
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 20
+    mov x3, 290
+    mov x4, 380
+    bl rectangle
+    mov x1 , 60
+    mov x2 , 5
+    mov x3, 290
+    mov x4, 370
+    bl rectangle
+    mov x1 , 20
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 375
+    bl rectangle
+    /*fin primera nube rojo */
+
+    /*segunda nube rojo */
+    mov x1 , 5
+    mov x2 , 40
+    mov x3, 385
+    mov x4, 375
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 10
+    mov x3, 380
+    mov x4, 400
+    bl rectangle
+    mov x1 , 15
+    mov x2 , 5
+    mov x3, 370
+    mov x4, 410
+    bl rectangle
+    mov x1 , 40
+    mov x2 , 5
+    mov x3, 350
+    mov x4, 415
+    bl rectangle
+    mov x1 , 40
+    mov x2 , 5
+    mov x3, 350
+    mov x4, 365
+    bl rectangle    
+    /* fin segunda nube rojo */
+
+    /*tercera nube rojo */
+    mov x1 , 5
+    mov x2 , 20
+    mov x3, 240
+    mov x4, 390
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 250
+    mov x4, 380
+    bl rectangle
+    mov x1 , 10
+    mov x2 , 15
+    mov x3, 240
+    mov x4, 370
+    bl rectangle
+    mov x1 , 40
+    mov x2 , 5
+    mov x3, 240
+    mov x4, 365
+    bl rectangle
+    mov x1 , 45
+    mov x2 , 5
+    mov x3, 240
+    mov x4, 410
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 10
+    mov x3, 280
+    mov x4, 400
+    bl rectangle
+    /*fin tercera nube rojo */
+    bl delay2
+    bl delay2
+    /* escombros  */
+    /*naranja */
+    movz x10 , 0x00FD , lsl 16
+    movk x10 , 0x8D06 , lsl 00
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 180
+    mov x4, 320
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 185
+    mov x4, 325
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 190
+    mov x4, 330
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 195
+    mov x4, 335
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 200
+    mov x4, 340
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 205
+    mov x4, 345
+    bl rectangle
+
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 320
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 325
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 330
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 335
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 340
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 345
+    bl rectangle
+
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 430
+    mov x4, 320
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 425
+    mov x4, 325
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 420
+    mov x4, 330
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 415
+    mov x4, 335
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 410
+    mov x4, 340
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 405
+    mov x4, 345
+    bl rectangle
+
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 200
+    mov x4, 440
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 205
+    mov x4, 435
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 210
+    mov x4, 430
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 215
+    mov x4, 425
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 220
+    mov x4, 420
+    bl rectangle
+
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 440
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 435
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 430
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 425
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 330
+    mov x4, 420
+    bl rectangle
+
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 430
+    mov x4, 440
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 425
+    mov x4, 435
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 420
+    mov x4, 430
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 415
+    mov x4, 425
+    bl rectangle
+    mov x1 , 5
+    mov x2 , 5
+    mov x3, 410
+    mov x4, 420
+    bl rectangle
+
+
+
 
 ldp x29 , x30 , [sp , 0]
 add sp , sp , 16
 ret
 
+animacionFuego:
+    sub sp , sp , 16
+    stp x29 , x30 , [sp , 0]
+    add x29 , sp , 0
+    mov x27 , 100
+    fuegoControl:
+    bl animacionRectangle
+    //bl delay2
+    bl fuego1
+    bl delay2
+    //bl delay2
+    
+    bl animacionRectangle
+    
+    bl fuego2
+    bl delay2
+    //bl delay2
 
+    bl animacionRectangle
 
-
-
+    bl fuego3
+    bl delay2
+    //bl delay2 
+    
+    sub x27 , x27 , 1
+    cbnz x27 , fuegoControl
+    ldp x29 , x30 , [sp , 0]
+    add sp , sp , 16
+    ret
 

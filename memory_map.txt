@@ -12,14 +12,14 @@ LOAD objects.o
 LOAD start.o
                 0x0000000000080000                . = 0x80000
 
-.text           0x0000000000080000    0x90bc8
+.text           0x0000000000080000    0x91814
  *(.text.boot)
  .text.boot     0x0000000000080000    0x100c8 start.o
                 0x0000000000080000                _start
  *(.text*)
  .text          0x00000000000900c8      0x114 app.o
                 0x00000000000900c8                main
- .text          0x00000000000901dc      0x628 functions.o
+ .text          0x00000000000901dc      0xc24 functions.o
                 0x00000000000901dc                checkRange
                 0x000000000009024c                calcular_pixel
                 0x0000000000090278                paint_pixel
@@ -27,57 +27,60 @@ LOAD start.o
                 0x00000000000902d4                background
                 0x0000000000090564                rectangleDegrade
                 0x00000000000905d4                animacionloop
-                0x00000000000906bc                boomAnimacion
- .text          0x0000000000090804      0x3c4 objects.o
-                0x0000000000090804                windows
-                0x0000000000090884                estrellas
-                0x0000000000090990                luna
-                0x0000000000090a14                arboles
-                0x0000000000090a34                ship1
-                0x0000000000090afc                ship2
- .text          0x0000000000090bc8    0x80000 start.o
+                0x00000000000906c8                boomAnimacion
+ .text          0x0000000000090e00      0xa14 objects.o
+                0x0000000000090e00                windows
+                0x0000000000090e80                estrellas
+                0x0000000000090f8c                luna
+                0x0000000000091010                arboles
+                0x0000000000091030                ship1
+                0x00000000000910f8                ship2
+                0x00000000000911c4                fuego1
+                0x00000000000913e0                fuego2
+                0x0000000000091610                fuego3
+ .text          0x0000000000091814    0x80000 start.o
 
-.iplt           0x0000000000110bc8        0x0
- .iplt          0x0000000000110bc8        0x0 app.o
+.iplt           0x0000000000111814        0x0
+ .iplt          0x0000000000111814        0x0 app.o
 
-.rela.dyn       0x0000000000110bc8        0x0
- .rela.iplt     0x0000000000110bc8        0x0 app.o
+.rela.dyn       0x0000000000111818        0x0
+ .rela.iplt     0x0000000000111818        0x0 app.o
  .rela.text.boot
-                0x0000000000110bc8        0x0 app.o
+                0x0000000000111818        0x0 app.o
 
-.data           0x0000000000110bc8        0x0
- .data          0x0000000000110bc8        0x0 app.o
- .data          0x0000000000110bc8        0x0 functions.o
- .data          0x0000000000110bc8        0x0 objects.o
- .data          0x0000000000110bc8        0x0 start.o
+.data           0x0000000000111814        0x0
+ .data          0x0000000000111814        0x0 app.o
+ .data          0x0000000000111814        0x0 functions.o
+ .data          0x0000000000111814        0x0 objects.o
+ .data          0x0000000000111814        0x0 start.o
 
-.igot.plt       0x0000000000110bc8        0x0
- .igot.plt      0x0000000000110bc8        0x0 app.o
+.igot.plt       0x0000000000111818        0x0
+ .igot.plt      0x0000000000111818        0x0 app.o
 
-.bss            0x0000000000110bc8        0x0
+.bss            0x0000000000111814        0x0
  *(.bss*)
- .bss           0x0000000000110bc8        0x0 app.o
- .bss           0x0000000000110bc8        0x0 functions.o
- .bss           0x0000000000110bc8        0x0 objects.o
- .bss           0x0000000000110bc8        0x0 start.o
+ .bss           0x0000000000111814        0x0 app.o
+ .bss           0x0000000000111814        0x0 functions.o
+ .bss           0x0000000000111814        0x0 objects.o
+ .bss           0x0000000000111814        0x0 start.o
 
-.bss            0x0000000000110bc8        0x8
-                0x0000000000110bd0                . = ALIGN (0x10)
- *fill*         0x0000000000110bc8        0x8 
-                0x0000000000110bd0                __bss_start = .
+.bss            0x0000000000111814        0xc
+                0x0000000000111820                . = ALIGN (0x10)
+ *fill*         0x0000000000111814        0xc 
+                0x0000000000111820                __bss_start = .
  *(.bss .bss.*)
  *(COMMON)
-                0x0000000000110bd0                __bss_end = .
-                0x0000000000110bd0                _end = .
+                0x0000000000111820                __bss_end = .
+                0x0000000000111820                _end = .
                 0x0000000000000000                __bss_size = ((__bss_end - __bss_start) >> 0x3)
 OUTPUT(kernel8.elf elf64-littleaarch64)
 LOAD linker stubs
 
-.debug_line     0x0000000000000000      0x3c8
+.debug_line     0x0000000000000000      0x6d8
  .debug_line    0x0000000000000000       0x7d app.o
- .debug_line    0x000000000000007d      0x1cb functions.o
- .debug_line    0x0000000000000248      0x12d objects.o
- .debug_line    0x0000000000000375       0x53 start.o
+ .debug_line    0x000000000000007d      0x347 functions.o
+ .debug_line    0x00000000000003c4      0x2c1 objects.o
+ .debug_line    0x0000000000000685       0x53 start.o
 
 .debug_info     0x0000000000000000       0xb8
  .debug_info    0x0000000000000000       0x2e app.o
